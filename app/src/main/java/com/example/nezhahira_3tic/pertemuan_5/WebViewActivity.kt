@@ -35,13 +35,6 @@ class WebViewActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setDisplayShowHomeEnabled(true)
         }
-        // Agar Toolbar hide/show saat scroll web
-        binding.WebView.setOnScrollChangeListener { _, _, scrollY, _, oldScrollY ->
-            if (scrollY > oldScrollY) {
-                binding.appBar.setExpanded(false, true) // sembunyikan
-            } else if (scrollY < oldScrollY) {
-                binding.appBar.setExpanded(true, true) // tampilkan
-            }
-        }
+
     }
 }

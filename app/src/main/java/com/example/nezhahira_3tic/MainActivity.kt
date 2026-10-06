@@ -68,8 +68,8 @@ class MainActivity : AppCompatActivity() {
             finish()
         }
 
-        binding.btnKembali.setOnClickListener {
-            val intent = Intent (this@MainActivity, LimaActivity::class.java)
+        binding.button.setOnClickListener {
+            val intent = Intent(this@MainActivity, LimaActivity::class.java)
             startActivity(intent)
         }
     }
