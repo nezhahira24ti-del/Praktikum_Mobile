@@ -1,4 +1,4 @@
-package com.example.nezhahira_3tic.pertemuan_6
+package com.example.nezhahira_3tic.home.pertemuan_6
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

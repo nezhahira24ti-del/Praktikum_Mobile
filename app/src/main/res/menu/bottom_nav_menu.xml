@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/outline_add_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/message"
+        android:icon="@drawable/outline_comment_24"
+        android:title="Message" />
+    <item
+        android:id="@+id/more"
+        android:icon="@drawable/outline_arrows_more_up_24"
+        android:title="More" />
+</menu>

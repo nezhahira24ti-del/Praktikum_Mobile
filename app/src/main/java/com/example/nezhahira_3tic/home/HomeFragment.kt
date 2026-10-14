@@ -1,59 +1,51 @@
-package com.example.nezhahira_3tic
+package com.example.nezhahira_3tic.home
 
+import android.content.Context.MODE_PRIVATE
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.activity.enableEdgeToEdge
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.nezhahira_3tic.databinding.ActivityMainBinding
-import com.example.nezhahira_3tic.pertemuan_5.LimaActivity
-import com.example.nezhahira_3tic.pertemuan_6.EnamActivity
+import com.example.nezhahira_3tic.LoginActivity
+import com.example.nezhahira_3tic.R
+import com.example.nezhahira_3tic.databinding.FragmentHomeBinding
+import com.example.nezhahira_3tic.home.pertemuan_5.LimaActivity
+import com.example.nezhahira_3tic.home.pertemuan_6.EnamActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity() {
+class HomeFragment : Fragment() {
+    private var _binding: FragmentHomeBinding? = null
+    private val binding get() = _binding!!
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 
-    private lateinit var binding: ActivityMainBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
-
-        val sharedPref = getSharedPreferences("user_pref", MODE_PRIVATE)
-        val nama = intent.getStringExtra("nama")
-        val umur = intent.getIntExtra("umur", 0)
-
-        if (!nama.isNullOrEmpty()) {
-            binding.txtNama.text = "Nama: $nama, Umur: $umur"
-        } else {
-            binding.txtNama.text = "TextView"
-        }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val sharedPref = requireContext().getSharedPreferences("user_pref", MODE_PRIVATE)
+        val nama = requireActivity().intent.getStringExtra("nama")
+        val umur = requireActivity().intent.getIntExtra("umur", 0)
 
         Log.w("hasil", "Nama: $nama Umur: $umur")
 
         binding.btnSnack.setOnClickListener {
             Snackbar.make(binding.root, "Ini adalah Snackbar", Snackbar.LENGTH_SHORT)
                 .setAction("Tutup") {
-                    val intent = Intent(this@MainActivity, LoginActivity::class.java)
+                    val intent = Intent(requireContext(), LoginActivity::class.java)
                     startActivity(intent)
                 }
                 .show()
         }
 
         binding.btnAlert.setOnClickListener {
-            MaterialAlertDialogBuilder(this)
+            MaterialAlertDialogBuilder(requireContext())
                 .setTitle("Konfirmasi")
                 .setMessage("Apakah Anda yakin ingin melanjutkan?")
                 .setPositiveButton("Ya") { dialog, _ ->
@@ -68,11 +60,11 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.btnKembali.setOnClickListener {
-            finish()
+            requireActivity().finish()
         }
 
         binding.btnLogout.setOnClickListener {
-            AlertDialog.Builder(this)
+            AlertDialog.Builder(requireContext())
                 .setTitle("Logout")
                 .setMessage("Apakah Anda yakin ingin keluar?")
                 .setPositiveButton("Ya") { dialog, _ ->
@@ -80,21 +72,22 @@ class MainActivity : AppCompatActivity() {
                     editor.clear()
                     editor.apply()
                     dialog.dismiss()
-                    startActivity(Intent(this@MainActivity, LoginActivity::class.java))
-                    finish()
+                    startActivity(Intent(requireContext(), LoginActivity::class.java))
+                    requireActivity().finish()
                 }
                 .setNegativeButton("Batal") { dialog, _ -> dialog.dismiss() }
                 .show()
         }
 
         binding.button.setOnClickListener {
-            val intent = Intent(this@MainActivity, LimaActivity::class.java)
+            val intent = Intent(requireContext(), LimaActivity::class.java)
             startActivity(intent)
         }
 
         binding.btnPert6.setOnClickListener {
-            val intent = Intent(this@MainActivity, EnamActivity::class.java)
+            val intent = Intent(requireContext(), EnamActivity::class.java)
             startActivity(intent)
         }
     }
+
 }

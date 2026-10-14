@@ -1,4 +1,4 @@
-package com.example.nezhahira_3tic.pertemuan_6
+package com.example.nezhahira_3tic.home.pertemuan_6
 
 import android.os.Bundle
 import android.view.MenuItem
@@ -8,7 +8,6 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import com.example.nezhahira_3tic.R
-import com.example.nezhahira_3tic.databinding.ActivityEnam2Binding
 import com.example.nezhahira_3tic.databinding.ActivityEnamBinding
 
 class EnamActivity : AppCompatActivity() {
