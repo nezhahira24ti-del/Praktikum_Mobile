@@ -17,6 +17,8 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways"
+            app:menu="@menu/message_toolbar_menu"
+            app:title="Halaman message"
             app:titleTextColor="@android:color/white" />
     </com.google.android.material.appbar.AppBarLayout>
     <ListView

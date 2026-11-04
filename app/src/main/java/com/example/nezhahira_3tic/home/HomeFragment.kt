@@ -14,6 +14,7 @@ import com.example.nezhahira_3tic.R
 import com.example.nezhahira_3tic.databinding.FragmentHomeBinding
 import com.example.nezhahira_3tic.home.pertemuan_5.LimaActivity
 import com.example.nezhahira_3tic.home.pertemuan_6.EnamActivity
+import com.example.nezhahira_3tic.home.pertemuan_9.NinthActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 
@@ -86,6 +87,11 @@ class HomeFragment : Fragment() {
 
         binding.btnPert6.setOnClickListener {
             val intent = Intent(requireContext(), EnamActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnPert9.setOnClickListener {
+            val intent = Intent(requireContext(), NinthActivity::class.java)
             startActivity(intent)
         }
     }
