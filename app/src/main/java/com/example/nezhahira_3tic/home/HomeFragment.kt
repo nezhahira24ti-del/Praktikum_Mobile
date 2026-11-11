@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.example.nezhahira_3tic.LoginActivity
 import com.example.nezhahira_3tic.R
 import com.example.nezhahira_3tic.databinding.FragmentHomeBinding
+import com.example.nezhahira_3tic.home.pertemuan_11.EleventhActivity
 import com.example.nezhahira_3tic.home.pertemuan_5.LimaActivity
 import com.example.nezhahira_3tic.home.pertemuan_6.EnamActivity
 import com.example.nezhahira_3tic.home.pertemuan_9.NinthActivity
@@ -92,6 +93,11 @@ class HomeFragment : Fragment() {
 
         binding.btnPert9.setOnClickListener {
             val intent = Intent(requireContext(), NinthActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btnPert11.setOnClickListener {
+            val intent = Intent(requireContext(), EleventhActivity::class.java)
             startActivity(intent)
         }
     }

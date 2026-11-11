@@ -84,12 +84,6 @@ app:layout_constraintStart_toStartOf="parent"
             android:layout_width="142dp"
             android:text="Pertemuan 5"
             app:layout_columnWeight="1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogout"
-            app:layout_constraintVertical_bias="0.0"
             app:layout_gravity="fill_horizontal" />
 
         <Button
@@ -100,10 +94,6 @@ app:layout_constraintStart_toStartOf="parent"
             android:layout_height="wrap_content"
             android:text="Pertemuan 6"
             app:layout_column="1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnLogout"
             app:layout_row="0" />
 
         <Button
@@ -113,11 +103,16 @@ app:layout_constraintStart_toStartOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="100dp"
-            android:text="Pertemuan 9"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="Pertemuan 9" />
+
+        <Button
+            android:id="@+id/btnPert11"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="100dp"
+            android:text="Pertemuan 11" />
 
     </androidx.gridlayout.widget.GridLayout>
 
